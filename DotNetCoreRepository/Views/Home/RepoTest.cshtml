@@ -1,0 +1,49 @@
+﻿@model IEnumerable<SalesHistory>
+@{
+    ViewData["Title"] = "RepoTest";
+}
+
+<h2>2018 Sales by Rep</h2>
+
+<style>
+    td {
+        height: 30px;
+        width: 110px;
+    }
+
+    .td-align-text-right {
+        text-align: right;
+    }
+</style>
+
+<table>
+    <tr>
+        <td bgcolor='#F0F0F0'>SlpCode</td>
+        <td bgcolor='#F0F0F0'>Invs</td>
+        <td bgcolor='#F0F0F0'>CMs</td>
+        <td bgcolor='#F0F0F0'>LineRevenue</td>
+        <td bgcolor='#F0F0F0'>ShippingRevenue</td>
+        <td bgcolor='#F0F0F0'>TotalRevenue</td>
+        <td bgcolor='#F0F0F0'>LineCost</td>
+        <td bgcolor='#F0F0F0'>ShippingCost</td>
+        <td bgcolor='#F0F0F0'>Rebate</td>
+        <td bgcolor='#F0F0F0'>TotalCost</td>
+        <td bgcolor='#F0F0F0'>Profit</td>
+    </tr>
+    @foreach (var o in Model)
+    {
+    <tr>
+        <td>@o.SlpName</td>
+        <td>@o.Invs</td>
+        <td>@o.CMs</td>
+        <td class="td-align-text-right">@String.Format("{0:C}", o.LineRevenue)</td>
+        <td class="td-align-text-right">@String.Format("{0:C}", o.ShippingRevenue)</td>
+        <td class="td-align-text-right">@String.Format("{0:C}", o.TotalRevenue)</td>
+        <td class="td-align-text-right">@String.Format("{0:C}", o.LineCost)</td>
+        <td class="td-align-text-right">@String.Format("{0:C}", o.ShippingCost)</td>
+        <td class="td-align-text-right">@String.Format("{0:C}", o.Rebate)</td>
+        <td class="td-align-text-right">@String.Format("{0:C}", o.TotalCost)</td>
+        <td class="td-align-text-right">@String.Format("{0:C}", o.Profit)</td>
+    </tr>
+    }
+</table>
